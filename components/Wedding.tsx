@@ -281,7 +281,7 @@ export default function Wedding({
       if (!wishes.length) {
         const empty = document.createElement("p");
         empty.className = "jmii-loading";
-        empty.textContent = "Hãy gửi lời chúc đầu tiên đến cô dâu chú rể.";
+        empty.textContent = "Lời chúc của bạn sẽ được gửi riêng đến cô dâu hoặc chú rể.";
         list.append(empty);
       }
       for (const wish of wishes) {
@@ -352,16 +352,15 @@ export default function Wedding({
           });
           const result = await response.json();
           if (!response.ok) throw new Error(result.error);
-          renderWishes(result.wishes);
           form.reset();
           syncGuests();
+          setStatus("Đã gửi lời nhắn và xác nhận. Cảm ơn bạn!");
+        } catch (error) {
           setStatus(
-            result.emailStatus === "failed"
-              ? "Đã lưu lời nhắn và xác nhận, nhưng chưa gửi được email thông báo."
-              : "Đã gửi lời nhắn và xác nhận. Cảm ơn bạn!",
+            error instanceof Error
+              ? error.message
+              : "Chưa gửi được lời nhắn. Vui lòng thử lại.",
           );
-        } catch {
-          setStatus("Chưa gửi được lời nhắn. Vui lòng thử lại.");
         } finally {
           sending = false;
         }

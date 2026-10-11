@@ -43,15 +43,15 @@ Thông tin mừng cưới được cấu hình tại `lib/wedding-config.ts` the
 
 ## Lời chúc và RSVP
 
-Biểu mẫu gửi đến API của dự án, không gửi đến JMII/LadiPage. API lưu cả RSVP và lời nhắn vào `data/wishes.jsonl`; chỉ tên và lời chúc được trả ra giao diện. Không sao chép lời chúc thật của khách từ trang tham chiếu. `WEDDING_DATA_DIR` cho phép chỉ định thư mục dữ liệu.
+Biểu mẫu gửi thông tin trực tiếp qua Gmail SMTP đến cô dâu hoặc chú rể theo lựa chọn của khách. API không ghi tệp, không dùng database và không công khai lời chúc. `/api/wishes` GET trả danh sách rỗng để tương thích với giao diện. Các dữ liệu local cũ trong `data/` không bị xóa nhưng không còn được sử dụng.
 
-Khi triển khai, cần chạy trên máy chủ Node có ổ đĩa ghi được và lưu bền vững. Nếu dùng môi trường serverless, cần thay lưu trữ tệp bằng cơ sở dữ liệu trước khi dùng RSVP thật. Dự án chưa được xuất bản.
+API chỉ báo thành công sau khi Gmail chấp nhận thư. Nếu SMTP lỗi hoặc tính năng gửi chưa bật, API trả lỗi và form giữ thông tin để khách thử lại. Máy chủ không lưu bản sao xác nhận.
 
 Một ảnh nền trong popup ẩn của mẫu trả về 404; đã thay bằng giấy nền có sẵn của mẫu. Các tài nguyên thừa và thư mục bản site cũ đã được loại khỏi dự án.
 
 ## Đóng gói để deploy
 
-Chỉ cần mã nguồn, `public/`, `package.json`, `package-lock.json` và các tệp cấu hình. Không tải lên `node_modules/`, `.next/`, `*.tsbuildinfo` hoặc `.DS_Store`; môi trường triển khai chạy `npm ci` và `npm run build` để tạo lại. Thư mục `data/` là dữ liệu lời chúc/RSVP, cần được lưu bền vững trên máy chủ.
+Chỉ cần mã nguồn, `public/`, `package.json`, `package-lock.json` và các tệp cấu hình. Không tải lên `node_modules/`, `.next/`, `*.tsbuildinfo` hoặc `.DS_Store`; môi trường triển khai chạy `npm ci` và `npm run build` để tạo lại. Không cần tải thư mục `data/`; phiên bản hiện tại gửi xác nhận qua email, không lưu tệp.
 
 ## Gmail SMTP — thử trên local
 
@@ -60,8 +60,8 @@ Chỉ cần mã nguồn, `public/`, `package.json`, `package-lock.json` và các
 3. Khởi động lại `npm run dev`. Mở `/invitation`, gửi dữ liệu thử cho từng lựa chọn khách cô dâu/chú rể rồi kiểm tra hộp thư nhận (và Spam).
 4. Có thể đặt cả hai địa chỉ nhận bằng email của bạn khi thử. Không cần tên miền riêng.
 
-Mật khẩu chỉ nằm phía server, `.env.local` đã được Git bỏ qua. Đừng dùng mật khẩu Gmail thông thường hoặc biến `NEXT_PUBLIC_` cho bí mật. Email được gửi sau khi lưu xác nhận; nếu SMTP lỗi, thông tin vẫn được lưu và giao diện báo chưa gửi được email. Hiện chưa có cơ chế tự gửi lại email lỗi.
+Mật khẩu chỉ nằm phía server, `.env.local` đã được Git bỏ qua. Đừng dùng mật khẩu Gmail thông thường hoặc biến `NEXT_PUBLIC_` cho bí mật. Nếu SMTP lỗi, thông tin được giữ trong form để thử lại; không có dữ liệu được lưu trên máy chủ hoặc cơ chế tự gửi lại email.
 
 Kiểm tra chọn người nhận mà không gửi thư: `node scripts/email-test.mjs` (Node hỗ trợ chạy TypeScript trực tiếp, ví dụ Node 22.18+).
 
-Khi chuyển lên Vercel, cấu hình các biến trên trong Environment Variables rồi deploy lại. Trước khi dùng form thật, phải chuyển lưu trữ `data/wishes.jsonl` sang database bền vững và bổ sung giới hạn gửi/chống spam; phiên bản hiện tại dành cho thử local, chưa giải quyết hai phần này.
+Khi chuyển lên Vercel, cấu hình các biến trên trong Environment Variables rồi deploy lại. Phiên bản này dùng email trực tiếp nên không cần database trên Vercel. Chống spam chưa được thêm theo yêu cầu bỏ qua của người dùng.

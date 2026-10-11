@@ -1,29 +1,9 @@
 import { NextResponse } from "next/server";
-import { appendFile, mkdir, readFile } from "node:fs/promises";
-import path from "node:path";
 import { sendRsvpEmail } from "../../../lib/rsvp-email";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-const file = path.join(
-  process.env.WEDDING_DATA_DIR || path.join(process.cwd(), "data"),
-  "wishes.jsonl",
-);
-async function wishes() {
-  try {
-    return (await readFile(file, "utf8"))
-      .split("\n")
-      .filter(Boolean)
-      .map((line) => JSON.parse(line))
-      .filter((w) => w.message)
-      .reverse()
-      .map(({ name, message }) => ({ name, message }));
-  } catch (e) {
-    if ((e as NodeJS.ErrnoException).code === "ENOENT") return [];
-    throw e;
-  }
-}
 export async function GET() {
-  return NextResponse.json(await wishes(), {
+  return NextResponse.json([], {
     headers: { "Cache-Control": "no-store" },
   });
 }
@@ -68,31 +48,31 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   const guestCount = attendance === "Xin lỗi, Tôi bận rồi!" ? "" : guests ? Number(guests) : 1;
-  await mkdir(path.dirname(file), { recursive: true });
-  await appendFile(
-    file,
-    JSON.stringify({
-      name: name.trim(),
-      message: message.trim(),
-      attendance,
-      side,
-      guests: guestCount,
-      createdAt: new Date().toISOString(),
-    }) + "\n",
-  );
-  let emailStatus: "sent" | "disabled" | "failed";
   try {
-    emailStatus = await sendRsvpEmail({
+    const emailStatus = await sendRsvpEmail({
       name: name.trim(),
       message: message.trim(),
       attendance,
       side,
       guests: guestCount,
     });
-  } catch {
-    // Keep the saved RSVP even when Gmail is unavailable; do not log credentials.
-    console.error("RSVP saved, but email notification failed.");
-    emailStatus = "failed";
+    if (emailStatus !== "sent") {
+      return NextResponse.json(
+        { error: "Tính năng gửi xác nhận chưa được bật. Vui lòng thử lại sau." },
+        { status: 503 },
+      );
+    }
+  } catch (error) {
+    // Log only diagnostic codes; never credentials or form contents.
+    const diagnostic = error as { code?: string; responseCode?: number };
+    console.error("RSVP email failed", {
+      code: diagnostic.code || "SMTP_CONFIGURATION_OR_DELIVERY_ERROR",
+      responseCode: diagnostic.responseCode,
+    });
+    return NextResponse.json(
+      { error: "Chưa gửi được email xác nhận. Vui lòng thử lại sau." },
+      { status: 502 },
+    );
   }
-  return NextResponse.json({ wishes: await wishes(), emailStatus }, { status: 201 });
+  return NextResponse.json({ emailStatus: "sent" }, { status: 201 });
 }
