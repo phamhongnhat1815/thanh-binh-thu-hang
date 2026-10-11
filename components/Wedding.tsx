@@ -208,7 +208,7 @@ export default function Wedding({
       );
     }
     const music = musicButton.current;
-    const audio = new Audio("/assets/wedding-music-89aad20da605.mp3");
+    const audio = new Audio("/assets/wedding-music-ad5d477b4010.mp3");
     audio.loop = true;
     let playing = false;
     if (music) {
@@ -327,6 +327,15 @@ export default function Wedding({
         guests.max = "20";
         guests.setAttribute("inputmode", "numeric");
       }
+      const attendance = form.querySelector<HTMLSelectElement>('[name="form_item7"]');
+      const syncGuests = () => {
+        if (!guests) return;
+        guests.disabled = attendance?.value === "Xin lỗi, Tôi bận rồi!";
+        if (guests.disabled) guests.value = "";
+      };
+      syncGuests();
+      attendance?.addEventListener("change", syncGuests);
+      removers.push(() => attendance?.removeEventListener("change", syncGuests));
       let sending = false;
       const send = async (e: Event) => {
         e.preventDefault();
@@ -335,6 +344,7 @@ export default function Wedding({
         setStatus("Đang gửi lời nhắn…");
         try {
           const fields = Object.fromEntries(new FormData(form));
+          if (attendance?.value === "Xin lỗi, Tôi bận rồi!") fields.guests = "";
           const response = await fetch("/api/wishes", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -344,7 +354,12 @@ export default function Wedding({
           if (!response.ok) throw new Error(result.error);
           renderWishes(result.wishes);
           form.reset();
-          setStatus("Đã gửi lời nhắn và xác nhận. Cảm ơn bạn!");
+          syncGuests();
+          setStatus(
+            result.emailStatus === "failed"
+              ? "Đã lưu lời nhắn và xác nhận, nhưng chưa gửi được email thông báo."
+              : "Đã gửi lời nhắn và xác nhận. Cảm ơn bạn!",
+          );
         } catch {
           setStatus("Chưa gửi được lời nhắn. Vui lòng thử lại.");
         } finally {

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { appendFile, mkdir, readFile } from "node:fs/promises";
 import path from "node:path";
+import { sendRsvpEmail } from "../../../lib/rsvp-email";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 const file = path.join(
@@ -56,15 +57,17 @@ export async function POST(request: Request) {
     message.length > 2000 ||
     !["Tôi chắc chắn sẽ đến", "Xin lỗi, Tôi bận rồi!"].includes(attendance) ||
     !["Khách mời Cô Dâu", "Khách mời Chú Rể"].includes(side) ||
-    (guests !== "" &&
+    (attendance !== "Xin lỗi, Tôi bận rồi!" && guests !== "" &&
+      (typeof guests !== "string" ||
       (!Number.isInteger(Number(guests)) ||
         Number(guests) < 1 ||
-        Number(guests) > 20))
+        Number(guests) > 20)))
   )
     return NextResponse.json(
       { error: "Vui lòng kiểm tra thông tin xác nhận." },
       { status: 400 },
     );
+  const guestCount = attendance === "Xin lỗi, Tôi bận rồi!" ? "" : guests ? Number(guests) : 1;
   await mkdir(path.dirname(file), { recursive: true });
   await appendFile(
     file,
@@ -73,9 +76,23 @@ export async function POST(request: Request) {
       message: message.trim(),
       attendance,
       side,
-      guests: guests ? Number(guests) : 1,
+      guests: guestCount,
       createdAt: new Date().toISOString(),
     }) + "\n",
   );
-  return NextResponse.json({ wishes: await wishes() }, { status: 201 });
+  let emailStatus: "sent" | "disabled" | "failed";
+  try {
+    emailStatus = await sendRsvpEmail({
+      name: name.trim(),
+      message: message.trim(),
+      attendance,
+      side,
+      guests: guestCount,
+    });
+  } catch {
+    // Keep the saved RSVP even when Gmail is unavailable; do not log credentials.
+    console.error("RSVP saved, but email notification failed.");
+    emailStatus = "failed";
+  }
+  return NextResponse.json({ wishes: await wishes(), emailStatus }, { status: 201 });
 }

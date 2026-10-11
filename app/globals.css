@@ -382,3 +382,46 @@ body {
   font-size: 15px;
   line-height: 1.55;
 }
+
+/* Opening hint and the two reception times. */
+.cover-open-hint {
+  position: absolute;
+  top: 458px;
+  left: 140px;
+  width: 140px;
+  text-align: center;
+  color: #52613e;
+  font: italic 16px/1.5 Georgia, serif;
+  animation: pulse 1s ease infinite;
+}
+.invitation-root #bride-time {
+  width: 262px;
+  top: 0;
+  left: 36.5px;
+}
+.invitation-root #HEADLINE14 { top: 25px; }
+.invitation-root #bride-time > .ladi-headline,
+.invitation-root #HEADLINE14 > .ladi-headline {
+  font-family: TESQSSRUdVTEFSLlRURg;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #52613e;
+  text-transform: uppercase;
+  text-align: center;
+}
+.invitation-root #GROUP61 { top: 53px; }
+.invitation-root #GROUP62 { height: 185px; }
+.invitation-root input[name="guests"]:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-open-hint { animation: none; }
+}
+
+.invitation-root #HEADLINE105 > .ladi-headline {
+  font-size: 10px;
+  letter-spacing: .15px;
+  white-space: nowrap;
+}

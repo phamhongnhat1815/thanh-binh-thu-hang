@@ -52,3 +52,16 @@ Một ảnh nền trong popup ẩn của mẫu trả về 404; đã thay bằng 
 ## Đóng gói để deploy
 
 Chỉ cần mã nguồn, `public/`, `package.json`, `package-lock.json` và các tệp cấu hình. Không tải lên `node_modules/`, `.next/`, `*.tsbuildinfo` hoặc `.DS_Store`; môi trường triển khai chạy `npm ci` và `npm run build` để tạo lại. Thư mục `data/` là dữ liệu lời chúc/RSVP, cần được lưu bền vững trên máy chủ.
+
+## Gmail SMTP — thử trên local
+
+1. Bật xác minh 2 bước cho tài khoản Gmail gửi thư, rồi tạo App Password tại https://myaccount.google.com/apppasswords.
+2. Sao chép `.env.example` thành `.env.local`. Điền `GMAIL_USER` (email gửi), `GMAIL_APP_PASSWORD` (mật khẩu ứng dụng), `GROOM_EMAIL`, `BRIDE_EMAIL`. Đặt `RSVP_EMAIL_ENABLED=true`.
+3. Khởi động lại `npm run dev`. Mở `/invitation`, gửi dữ liệu thử cho từng lựa chọn khách cô dâu/chú rể rồi kiểm tra hộp thư nhận (và Spam).
+4. Có thể đặt cả hai địa chỉ nhận bằng email của bạn khi thử. Không cần tên miền riêng.
+
+Mật khẩu chỉ nằm phía server, `.env.local` đã được Git bỏ qua. Đừng dùng mật khẩu Gmail thông thường hoặc biến `NEXT_PUBLIC_` cho bí mật. Email được gửi sau khi lưu xác nhận; nếu SMTP lỗi, thông tin vẫn được lưu và giao diện báo chưa gửi được email. Hiện chưa có cơ chế tự gửi lại email lỗi.
+
+Kiểm tra chọn người nhận mà không gửi thư: `node scripts/email-test.mjs` (Node hỗ trợ chạy TypeScript trực tiếp, ví dụ Node 22.18+).
+
+Khi chuyển lên Vercel, cấu hình các biến trên trong Environment Variables rồi deploy lại. Trước khi dùng form thật, phải chuyển lưu trữ `data/wishes.jsonl` sang database bền vững và bổ sung giới hạn gửi/chống spam; phiên bản hiện tại dành cho thử local, chưa giải quyết hai phần này.
