@@ -1,0 +1,384 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: #fff;
+  color: #52613e;
+}
+* {
+  box-sizing: border-box;
+}
+.wedding-root {
+  width: 420px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+.wedding-wait {
+  opacity: 0;
+}
+.ladi-animation {
+  opacity: 1;
+}
+.ladi-container {
+  width: 420px !important;
+}
+.wedding-root .ladi-wraper {
+  width: 420px;
+}
+.wedding-root [role="button"],
+.wedding-root a {
+  cursor: pointer;
+}
+.wedding-root :focus-visible {
+  outline: 2px solid #52613e;
+  outline-offset: 4px;
+}
+.ladi-gallery-view-item {
+  transition: none !important;
+}
+.ladi-gallery-control-box {
+  transition: transform 0.4s !important;
+}
+.ladi-gallery-view-arrow {
+  opacity: 0.8 !important;
+}
+.submission-status {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(360px, calc(100vw - 32px));
+  z-index: 10000;
+  background: #52613e;
+  color: white;
+  padding: 18px 38px 18px 18px;
+  border-radius: 8px;
+  font: 14px/1.6 Georgia;
+  box-shadow: 0 4px 20px #0002;
+}
+.submission-status.visible {
+  display: block;
+}
+.submission-status button {
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  background: transparent;
+  border: 0;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+.ladi-form-control {
+  font-size: 16px !important;
+}
+#music-toggle {
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  z-index: 999 !important;
+}
+#jmii-list .jmii-message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .wedding-wait {
+    opacity: 1;
+  }
+}
+
+#GALLERY2 .ladi-gallery-control-box {
+  width: 720px;
+}
+#GALLERY2 .ladi-gallery-control-item {
+  flex-shrink: 0;
+}
+#GALLERY2 .ladi-gallery-view-item {
+  display: block;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: none !important;
+}
+#GALLERY2 .ladi-gallery-view-item.selected {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Family maps replace the former venue block without changing the paper design. */
+.invitation-root #SECTION3 {
+  height: 990px;
+}
+.invitation-root #IMAGE23,
+.invitation-root #IMAGE24,
+.invitation-root #IMAGE23 .ladi-image-background,
+.invitation-root #IMAGE24 .ladi-image-background {
+  height: 990px;
+}
+.invitation-root #GROUP46 {
+  height: 378px;
+}
+.invitation-root #HEADLINE5 {
+  top: 330px;
+}
+.invitation-root #GROUP60 {
+  top: 558.028px;
+}
+.invitation-root #GROUP62 {
+  top: 720.532px;
+}
+.invitation-root #IMAGE16 {
+  top: 470.151px;
+}
+.invitation-root #IMAGE22 {
+  top: 905px;
+}
+.family-map-slot {
+  position: absolute;
+  top: 72px;
+  left: 10px;
+  width: 182px;
+}
+.family-map-card {
+  padding: 10px;
+  background: #ffffffb3;
+  border: 1px solid #52613e30;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px #52613e0a;
+  color: #52613e;
+}
+.family-address {
+  min-height: 55px;
+  margin: 0 0 8px;
+  font:
+    11px/1.55 "TESQSSRUdVTEFSLlRURg",
+    Georgia,
+    serif;
+  text-align: center;
+}
+.family-map-card iframe {
+  display: block;
+  width: 100%;
+  height: 120px;
+  border: 0;
+  border-radius: 5px;
+  background: #e7ecdf;
+}
+.directions-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 34px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background: #52613e;
+  color: #fff !important;
+  font:
+    11px "TESQSSRUdVTEFSLlRURg",
+    Georgia,
+    serif;
+  text-decoration: none;
+}
+.directions-button svg {
+  height: 17px;
+  width: 17px;
+}
+.directions-button:hover,
+.gift-trigger:hover {
+  background: #40502e;
+}
+.wedding-calendar {
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+.wedding-calendar h3 {
+  font:
+    40px/1.5 "QkVZTEUEVSRkVDVElPTiSRUdVTEFSLlRURg",
+    Georgia,
+    serif;
+  margin: 0 0 10px;
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px 0;
+  font:
+    14px/1.4 "TESQSSRUdVTEFSLlRURg",
+    Georgia,
+    serif;
+}
+.calendar-weekday {
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.calendar-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 29px;
+  margin: auto;
+}
+.wedding-day {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: #ffffff24;
+  font-weight: bold;
+}
+.wedding-gift {
+  padding: 42px 28px;
+  background: #f8f8f4;
+  text-align: center;
+  color: #52613e;
+}
+.wedding-gift > p {
+  font:
+    italic 14px/1.6 "TESQSSRUdVTEFSLlRURg",
+    Georgia,
+    serif;
+  margin: 0 0 18px;
+}
+.gift-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 28px;
+  background: #52613e;
+  color: white;
+  font:
+    16px/1.5 "TESQSSRUdVTEFSLlRURg",
+    Georgia,
+    serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.gift-trigger span {
+  font-size: 23px;
+}
+.gift-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(390px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid #52613e38;
+  border-radius: 15px;
+  background: #fafaf6;
+  color: #52613e;
+  box-shadow: 0 20px 80px #0003;
+  overflow: auto;
+}
+.gift-dialog::backdrop {
+  background: #1e291dcc;
+  backdrop-filter: blur(4px);
+}
+.gift-dialog-panel {
+  position: relative;
+  padding: 42px 25px 28px;
+  text-align: center;
+}
+.gift-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: #52613e;
+  font: 30px/1 Georgia;
+  cursor: pointer;
+}
+.gift-kicker {
+  font:
+    10px Georgia,
+    serif;
+  letter-spacing: 4px;
+  margin: 0 0 15px;
+}
+.gift-dialog h2 {
+  font:
+    25px/1.4 "TESQSSRUdVTEFSLlRURg",
+    Georgia,
+    serif;
+  margin: 0;
+}
+.gift-divider {
+  height: 1px;
+  width: 35px;
+  margin: 18px auto 25px;
+  background: #52613e70;
+}
+.gift-dialog dl {
+  margin: 0;
+  text-align: left;
+}
+.gift-dialog dl > div {
+  padding: 14px 0;
+  border-bottom: 1px solid #52613e20;
+}
+.gift-dialog dt {
+  font:
+    12px/1.5 Georgia,
+    serif;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+.gift-dialog dd {
+  margin: 0;
+  font:
+    16px/1.5 "TESQSSRUdVTEFSLlRURg",
+    Georgia,
+    serif;
+  overflow-wrap: anywhere;
+}
+.gift-copy {
+  width: 100%;
+  padding: 12px;
+  margin-top: 24px;
+  border: 0;
+  border-radius: 24px;
+  background: #52613e;
+  color: white;
+  font:
+    14px Georgia,
+    serif;
+  cursor: pointer;
+}
+.gift-thanks {
+  font:
+    italic 12px/1.7 Georgia,
+    serif;
+  margin: 24px 0 0;
+}
+.gift-trigger:focus-visible,
+.gift-dialog button:focus-visible {
+  outline: 2px solid #829071;
+  outline-offset: 4px;
+}
+.invitation-root #HEADLINE81 > .ladi-headline,
+.invitation-root #HEADLINE82 > .ladi-headline {
+  font-size: 15px;
+  line-height: 1.55;
+}

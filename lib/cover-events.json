@@ -1,0 +1,54 @@
+{
+  "GROUP1": {
+    "a": "group",
+    "D": "fadeInUp",
+    "A": "1s"
+  },
+  "IMAGE4": {
+    "a": "image",
+    "D": "fadeInUp",
+    "A": "1s"
+  },
+  "IMAGE5": {
+    "a": "image",
+    "D": "fadeInUp",
+    "A": "2s"
+  },
+  "IMAGE6": {
+    "a": "image",
+    "D": "fadeInUp",
+    "A": "2s"
+  },
+  "IMAGE7": {
+    "a": "image",
+    "cs": [
+      {
+        "dr": "action",
+        "dv": "_blank",
+        "dw": "https://jmiiwedding.com/dathaaa",
+        "a": "link"
+      }
+    ],
+    "D": "pulse",
+    "A": "0s"
+  },
+  "HEADLINE3": {
+    "option.is_product_mapping_name_custom": true,
+    "a": "headline",
+    "D": "fadeInUp",
+    "A": "0s"
+  },
+  "IMAGE8": {
+    "a": "image",
+    "cs": [
+      {
+        "dr": "action",
+        "dv": "_blank",
+        "dw": "https://jmiiwedding.com/datha",
+        "a": "link"
+      }
+    ],
+    "D": "pulse",
+    "A": "1s"
+  }
+}
