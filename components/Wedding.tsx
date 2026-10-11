@@ -208,7 +208,7 @@ export default function Wedding({
       );
     }
     const music = musicButton.current;
-    const audio = new Audio("/assets/wedding-music-new.mp3");
+    const audio = new Audio("/assets/wedding-music-89aad20da605.mp3");
     audio.loop = true;
     let playing = false;
     if (music) {
