@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import FamilyMap from "./FamilyMap";
+import FamilyReception from "./FamilyReception";
 import WeddingGift from "./WeddingGift";
 import { weddingConfig } from "../lib/wedding-config";
 type EventConfig = {
@@ -30,10 +30,9 @@ export default function Wedding({
   const host = useRef<HTMLDivElement>(null);
   const musicButton = useRef<HTMLButtonElement>(null);
   const [slots, setSlots] = useState<{
-    groom: HTMLElement | null;
-    bride: HTMLElement | null;
+    reception: HTMLElement | null;
     gift: HTMLElement | null;
-  }>({ groom: null, bride: null, gift: null });
+  }>({ reception: null, gift: null });
   const [status, setStatus] = useState("");
   useEffect(() => {
     const root = host.current!;
@@ -46,8 +45,7 @@ export default function Wedding({
     window.addEventListener("resize", fit);
     removers.push(() => window.removeEventListener("resize", fit));
     setSlots({
-      groom: root.querySelector<HTMLElement>("#groom-map-slot"),
-      bride: root.querySelector<HTMLElement>("#bride-map-slot"),
+      reception: root.querySelector<HTMLElement>("#family-reception-slot"),
       gift: root.querySelector<HTMLElement>("#wedding-gift-slot"),
     });
     const reduced = window.matchMedia(
@@ -402,8 +400,7 @@ export default function Wedding({
       >
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </main>
-      {slots.groom && createPortal(<FamilyMap side="groom" />, slots.groom)}
-      {slots.bride && createPortal(<FamilyMap side="bride" />, slots.bride)}
+      {slots.reception && createPortal(<FamilyReception />, slots.reception)}
       {slots.gift && createPortal(<WeddingGift />, slots.gift)}
       {!cover && (
         <button
