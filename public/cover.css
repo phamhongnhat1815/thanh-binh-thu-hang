@@ -2,3 +2,62 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,button,c
 body {direction: ltr;}.ladi-wraper {margin: 0 auto; width: 420px;}@font-face {font-family: "MUZUViWSVAtSEFTVEVHSSPVEY";src: url("/assets/73e6239a7f77c1c9.otf")}body {font-family: "Open Sans", sans-serif}
 #SECTION1{height: 771.7px;}#IMAGE9,#IMAGE9 > .ladi-image > .ladi-image-background,#IMAGE2,#IMAGE2 > .ladi-image > .ladi-image-background{width: 419.688px; height: 669.178px;}#IMAGE9{top: 108px; left: 0.156px;}#IMAGE9 > .ladi-image > .ladi-image-background,#IMAGE2,#IMAGE2 > .ladi-image > .ladi-image-background,#IMAGE4 > .ladi-image > .ladi-image-background,#BOX1,#IMAGE3 > .ladi-image > .ladi-image-background,#IMAGE5 > .ladi-image > .ladi-image-background,#IMAGE6 > .ladi-image > .ladi-image-background,#IMAGE7 > .ladi-image > .ladi-image-background,#IMAGE8 > .ladi-image > .ladi-image-background{top: 0px; left: 0px;}#IMAGE9 > .ladi-image > .ladi-image-background,#IMAGE2 > .ladi-image > .ladi-image-background{background-image: url("/assets/9d9f6d817edd562a.png");}#IMAGE4,#IMAGE4 > .ladi-image > .ladi-image-background{width: 285.2px; height: 200.845px;}#IMAGE4{top: 235.077px; left: 67.4px;}#IMAGE4 > .ladi-image > .ladi-image-background{background-image: url("/assets/9a0641f15f8d8534.png");}#IMAGE4.ladi-animation > .ladi-image,#GROUP1.ladi-animation > .ladi-group{animation-name: fadeInUp; animation-delay: 1s; animation-duration: 1s; animation-iteration-count: 1;}#GROUP1,#BOX1{width: 391.5px; height: 107.944px;}#GROUP1{top: 50.5px; left: 21.5005px;}#BOX1 > .ladi-box{border-radius: 0px;background-color: rgba(242, 243, 244, 0);}#BOX1 > .ladi-box:hover,#HEADLINE3 > .ladi-headline:hover{opacity: 1;}#IMAGE3,#IMAGE3 > .ladi-image > .ladi-image-background{width: 322.222px; height: 53.4847px;}#IMAGE3{top: 34.4793px; left: 31.9708px;}#IMAGE3 > .ladi-image > .ladi-image-background{background-image: url("/assets/1bfb79a0b54561ea.png");}#IMAGE5,#IMAGE5 > .ladi-image > .ladi-image-background{width: 101.087px; height: 186px;}#IMAGE5{top: 174.5px; left: 35px;}#IMAGE5 > .ladi-image > .ladi-image-background{background-image: url("/assets/6848f796937d7686.png");}#IMAGE5.ladi-animation > .ladi-image,#IMAGE6.ladi-animation > .ladi-image{animation-name: fadeInUp; animation-delay: 2s; animation-duration: 1s; animation-iteration-count: 1;}#IMAGE6,#IMAGE6 > .ladi-image > .ladi-image-background{width: 152.525px; height: 302px;}#IMAGE6{top: 287.411px; left: 254.476px;}#IMAGE6 > .ladi-image > .ladi-image-background{background-image: url("/assets/36d9dda7bef57e7e.png");}#IMAGE7,#IMAGE7 > .ladi-image > .ladi-image-background{width: 61.7831px; height: 71.578px;}#IMAGE7{top: 341.922px; left: 180.403px;}#IMAGE7 > .ladi-image > .ladi-image-background{background-image: url("/assets/72f5a5193f76686d.png");}#IMAGE7.ladi-animation > .ladi-image{animation-name: pulse; animation-delay: 0s; animation-duration: 1s; animation-iteration-count: infinite;}#HEADLINE3{width: 194px;top: 501.5px; left: 114.295px;}#HEADLINE3 > .ladi-headline{font-family: MUZUViWSVAtSEFTVEVHSSPVEY; font-size: 34.38px; line-height: 1.3; color: rgb(82, 97, 62); text-transform: uppercase; letter-spacing: 3px; text-align: center;}#HEADLINE3.ladi-animation > .ladi-headline{animation-name: fadeInUp; animation-delay: 0s; animation-duration: 1s; animation-iteration-count: 1;}#IMAGE8,#IMAGE8 > .ladi-image > .ladi-image-background{width: 53.7333px; height: 62px;}#IMAGE8{top: 799.922px; left: -188.5px;filter: drop-shadow(rgb(164, 165, 166) 0px 3px 2px);}#IMAGE8 > .ladi-image > .ladi-image-background{background-image: url("/assets/abff9b69e28f84fd.png");}#IMAGE8.ladi-animation > .ladi-image{animation-name: pulse; animation-delay: 1s; animation-duration: 1s; animation-iteration-count: infinite;}
 @-webkit-keyframes fadeInUp {0% {opacity: 0;-webkit-transform: translateY(20px);transform: translateY(20px);}100% {opacity: 1;-webkit-transform: translateY(0);transform: translateY(0);}}@keyframes fadeInUp {0% {opacity: 0;-webkit-transform: translateY(20px);-ms-transform: translateY(20px);transform: translateY(20px);}100% {opacity: 1;-webkit-transform: translateY(0);-ms-transform: translateY(0);transform: translateY(0);}}@-webkit-keyframes pulse {0% {-webkit-transform: scale(1);transform: scale(1);}50% {-webkit-transform: scale(1.1);transform: scale(1.1);}100% {opacity: 1;-webkit-transform: scale(1);transform: scale(1);}}@keyframes pulse {0% {-webkit-transform: scale(1);-ms-transform: scale(1);transform: scale(1);}50% {-webkit-transform: scale(1.1);-ms-transform: scale(1.1);transform: scale(1.1);}100% {opacity: 1;-webkit-transform: scale(1);-ms-transform: scale(1);transform: scale(1);}}
+
+@font-face { font-family: CoverScriptVietnamese; src: url('/assets/cover-script-vietnamese-v2.ttf') format('truetype'); font-display: swap; }
+.cover-root #GROUP1 { top: 55px; left: 10px; width: 400px; height: 110px; }
+.cover-root #IMAGE3 { top: 0; left: 0; width: 400px; height: 110px; color: #52613e; text-align: center; font-family: CoverScriptVietnamese, cursive; }
+.cover-root #IMAGE3 .cover-names { width: 100%; padding-inline: 20px; font-size: 20px; line-height: 62px; white-space: nowrap; }
+.cover-root #IMAGE3 .cover-date { font-size: 33px; line-height: 1.4; }
+#HEADLINE3 { top: 531px; left: 49px; width: 322px; height: 54px; }
+#HEADLINE3 > .ladi-headline { font-size: 0; height: 54px; background: url('/assets/1bfb79a0b54561ea.png') center / contain no-repeat; }
+.wedding-root .cover-open-hint { top: 448px; left: 115px; width: 190px; height: 85px; mix-blend-mode: multiply; animation: none; }
+.cover-designed-open { display: block; width: 190px; height: 85px; background: url("/moi/Mở thiệp.png") -133px -269px / 470px auto no-repeat; filter: grayscale(1); mix-blend-mode: screen; }
+.cover-root #SECTION1 { height: 630px; }
+.cover-root #IMAGE9, .cover-root #IMAGE2, .cover-root #IMAGE9 .ladi-image-background, .cover-root #IMAGE2 .ladi-image-background { height: 630px; }
+
+.cover-root .cover-open-hint { background-color: #52613e; isolation: isolate; }
+
+@keyframes cover-open-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .55; }
+}
+.cover-root .cover-open-hint { animation: pulse 1s ease infinite; }
+.cover-root .cover-open-hint::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 19px;
+  height: 1px;
+  background: #52613e;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .2s ease;
+}
+.cover-root .cover-open-hint:hover::after,
+.cover-root .cover-open-hint:active::after,
+.cover-root .cover-open-hint:focus-visible::after { transform: scaleX(1); }
+.cover-root .cover-open-hint:hover,
+.cover-root .cover-open-hint:active,
+.cover-root .cover-open-hint:focus-visible { animation-play-state: paused; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .cover-root .cover-open-hint { animation: none; }
+  .cover-root .cover-open-hint::after { transition: none; }
+}
+/* Trim the faint outer edge of the source lettering image. */
+.cover-root .cover-open-hint { clip-path: inset(4px); }
+/* Scale the original lettering to roughly 18px beside the 20px names. */
+.cover-root .cover-open-hint {
+  top: 460px;
+  left: 162.5px;
+  width: 95px;
+  height: 42.5px;
+  clip-path: inset(2px);
+}
+.cover-root .cover-designed-open {
+  width: 95px;
+  height: 42.5px;
+  background-position: -66.5px -134.5px;
+  background-size: 235px auto;
+}
+.cover-root .cover-open-hint::after { left: 12px; right: 12px; bottom: 9.5px; }

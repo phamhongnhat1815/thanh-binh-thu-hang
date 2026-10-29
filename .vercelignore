@@ -1,0 +1,8 @@
+.git
+.next
+node_modules
+.env*
+lib/*.docx
+lib/*.xlsx
+public/font-proof.html
+*.tsbuildinfo

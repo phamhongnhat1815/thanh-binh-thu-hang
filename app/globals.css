@@ -4,7 +4,7 @@ html {
 body {
   margin: 0;
   background: #fff;
-  color: #52613e;
+  color: #2e6337;
 }
 * {
   box-sizing: border-box;
@@ -32,7 +32,7 @@ body {
   cursor: pointer;
 }
 .wedding-root :focus-visible {
-  outline: 2px solid #52613e;
+  outline: 2px solid #2e6337;
   outline-offset: 4px;
 }
 .ladi-gallery-view-item {
@@ -52,7 +52,7 @@ body {
   transform: translateX(-50%);
   width: min(360px, calc(100vw - 32px));
   z-index: 10000;
-  background: #52613e;
+  background: #2e6337;
   color: white;
   padding: 18px 38px 18px 18px;
   border-radius: 8px;
@@ -155,10 +155,10 @@ body {
 .family-map-card {
   padding: 10px;
   background: #ffffffb3;
-  border: 1px solid #52613e30;
+  border: 1px solid #2e633730;
   border-radius: 10px;
-  box-shadow: 0 3px 12px #52613e0a;
-  color: #52613e;
+  box-shadow: 0 3px 12px #2e63370a;
+  color: #2e6337;
 }
 .family-address {
   min-height: 55px;
@@ -185,7 +185,7 @@ body {
   height: 34px;
   margin-top: 10px;
   border-radius: 20px;
-  background: #52613e;
+  background: #2e6337;
   color: #fff !important;
   font:
     11px "TESQSSRUdVTEFSLlRURg",
@@ -245,7 +245,7 @@ body {
   padding: 42px 28px;
   background: #f8f8f4;
   text-align: center;
-  color: #52613e;
+  color: #2e6337;
 }
 .wedding-gift > p {
   font:
@@ -263,7 +263,7 @@ body {
   padding: 15px 20px;
   border: 0;
   border-radius: 28px;
-  background: #52613e;
+  background: #2e6337;
   color: white;
   font:
     16px/1.5 "TESQSSRUdVTEFSLlRURg",
@@ -282,10 +282,10 @@ body {
   width: min(390px, calc(100vw - 32px));
   max-height: calc(100dvh - 32px);
   padding: 0;
-  border: 1px solid #52613e38;
+  border: 1px solid #2e633738;
   border-radius: 15px;
   background: #fafaf6;
-  color: #52613e;
+  color: #2e6337;
   box-shadow: 0 20px 80px #0003;
   overflow: auto;
 }
@@ -306,7 +306,7 @@ body {
   height: 36px;
   border: 0;
   background: transparent;
-  color: #52613e;
+  color: #2e6337;
   font: 30px/1 Georgia;
   cursor: pointer;
 }
@@ -328,7 +328,7 @@ body {
   height: 1px;
   width: 35px;
   margin: 18px auto 25px;
-  background: #52613e70;
+  background: #2e633770;
 }
 .gift-dialog dl {
   margin: 0;
@@ -336,7 +336,7 @@ body {
 }
 .gift-dialog dl > div {
   padding: 14px 0;
-  border-bottom: 1px solid #52613e20;
+  border-bottom: 1px solid #2e633720;
 }
 .gift-dialog dt {
   font:
@@ -359,7 +359,7 @@ body {
   margin-top: 24px;
   border: 0;
   border-radius: 24px;
-  background: #52613e;
+  background: #2e6337;
   color: white;
   font:
     14px Georgia,
@@ -390,7 +390,7 @@ body {
   left: 140px;
   width: 140px;
   text-align: center;
-  color: #52613e;
+  color: #2e6337;
   font: italic 16px/1.5 Georgia, serif;
   animation: pulse 1s ease infinite;
 }
@@ -405,7 +405,7 @@ body {
   font-family: TESQSSRUdVTEFSLlRURg;
   font-size: 18px;
   line-height: 1.4;
-  color: #52613e;
+  color: #2e6337;
   text-transform: uppercase;
   text-align: center;
 }
@@ -426,26 +426,65 @@ body {
   white-space: nowrap;
 }
 
-/* Reception cards replace the former date block and embedded family maps. */
-.invitation-root #SECTION3,
-.invitation-root #IMAGE23,
-.invitation-root #IMAGE24,
-.invitation-root #IMAGE23 .ladi-image-background,
-.invitation-root #IMAGE24 .ladi-image-background { height: 970px; }
-.invitation-root #GROUP46 { height: 158px; }
-.invitation-root #HEADLINE5 { top: 100px; }
-.invitation-root #GROUP60 { top: 280px; }
-.invitation-root #IMAGE16 { top: 200px; }
-.invitation-root #IMAGE22 { top: 900px; }
-.invitation-root #family-reception-slot { position: absolute; top: 475px; left: 10px; width: 400px; }
-.invitation-root #IMAGE16 { top: 215px; left: 310px; }
-.invitation-root #IMAGE16,
-.invitation-root #IMAGE16 .ladi-image-background { width: 100px; height: 58px; }
+.invitation-root #SECTION13 { height: auto; min-height: 150px; padding: 28px 20px; }
+.invitation-root #SECTION13 .ladi-container { width: 380px !important; }
+.invitation-root #HTML_CODE1 { position: relative; top: auto; left: auto; width: 380px; height: auto; }
+.invitation-root #HTML_CODE1 .ladi-html-code { height: auto; }
+.invitation-root #IMAGE76, .invitation-root #IMAGE77 { display: none; }
+#jmii-wishes { text-align: center; font: 14px/1.6 Georgia, serif; }
+#jmii-scroll { max-height: 180px; overflow-y: auto; margin-top: 16px; }
 
-.invitation-root #family-reception-slot { top: 500px; }
+/* The reception invitation owns its spacing and flows with its content. */
+.invitation-root #SECTION3 { height: auto; background: #fff; }
+.invitation-root #SECTION3 > .ladi-container { height: auto; }
+.invitation-root #family-reception-slot { position: relative; top: auto; left: auto; width: 420px; }
+
+/* Keep the complete story artwork visible at its original proportions. */
+.invitation-root #SECTION5 { height: auto; background: #fff; }
+.invitation-root .loving-story-image { display: block; width: 100%; height: auto; }
+.invitation-root .ladi-headline,
+.invitation-root #COUNTDOWN1 > .ladi-countdown { color: #2e6337; }
+/* Copy over photographs stays light for contrast. */
+.invitation-root #SECTION7 .ladi-headline,
+.invitation-root #SECTION12 .ladi-headline { color: #fff; }
+.invitation-root .ladi-button .ladi-headline { color: #fff; }
+
+/* The vows follow the portraits and expand naturally for three paragraphs. */
+@font-face { font-family: "Vow Script"; src: url("/assets/238eded634cb8218.ttf") format("truetype"); font-display: swap; }
+.invitation-root #SECTION6 { height: auto; }
+.invitation-root #SECTION6 > .ladi-container { height: auto; padding-top: 515px; padding-bottom: 36px; }
+.invitation-root #GROUP56 { position: relative; top: auto; left: auto; width: 377px; height: auto; margin: 0 auto; color: #2e6337; }
+.vow-title { margin: 0 0 8px; text-align: center; font: 400 52px/1.25 "Vow Script", cursive; }
+.vow-copy { font: 400 15px/1.55 "Times New Roman", serif; text-align: left; }
+.vow-copy p { margin: 0; }
+.vow-copy p + p { margin-top: 24px; }
+.invitation-root #IMAGE29 { top: 390px; }
+.invitation-root #SECTION6 { background: #fff url('/assets/87861be022b8fd22.png') center top / 420px auto repeat-y; }
+
+/* Share the paper texture across both new invitation panels. */
 .invitation-root #SECTION3,
-.invitation-root #IMAGE23,
-.invitation-root #IMAGE24,
-.invitation-root #IMAGE23 .ladi-image-background,
-.invitation-root #IMAGE24 .ladi-image-background { height: 995px; }
-.invitation-root #IMAGE22 { top: 925px; }
+.invitation-root #SECTION5 {
+  background: #fff url('/assets/87861be022b8fd22.png') center top / 420px auto repeat-y;
+  isolation: isolate;
+}
+.invitation-root .loving-story-image { mix-blend-mode: multiply; }
+
+/* Individual portraits in the existing tilted wedding frames. */
+.invitation-root #BOX9 > .ladi-box {
+  background-image: url('/moi/chu-re-thanh-binh.jpg');
+  background-position: center 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.invitation-root #BOX8 > .ladi-box {
+  background-image: url('/moi/co-dau-thu-hang.jpg');
+  background-position: center 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Bring the photo panel closer to the end of the ceremony timeline. */
+.invitation-root #SECTION8 { height: 335px; }
+.invitation-root #SECTION8 #GROUP71 { display: none; }
+.invitation-root #SECTION8 #IMAGE35 { top: 0; height: 100%; }
+.invitation-root #SECTION8 #IMAGE35 .ladi-image-background { height: 100%; }

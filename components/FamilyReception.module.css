@@ -1,23 +1,40 @@
-.papers { width: 400px; margin: 0 auto; }
-.content { position: absolute; inset: 9% 9%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6cqw; }
-.papers .content > p { position: static; inset: auto; width: auto; margin: 0; }
-.content .kicker { margin-bottom: 1.5cqw; font: 1.9cqw/1.4 Arial, sans-serif; letter-spacing: .2cqw; white-space: nowrap; }
-.content .familyTitle { display: grid; grid-template-columns: 1fr 10cqw 1fr; align-items: center; justify-items: center; width: 100%; margin: 1cqw 0; font: normal 9cqw/1 "MUZUViWSVAtSEFTVEVHSSPVEY", 'Times New Roman', serif; }
-.botanical { display: flex; align-items: center; justify-content: center; width: 10cqw; height: 14cqw; border-left: 1px solid currentColor; border-right: 1px solid currentColor; }
-.botanical img { width: 8cqw; height: 12cqw; object-fit: contain; }
-.content .date { width: 100%; font-family: "MUZUViWSVAtSEFTVEVHSSPVEY", 'Times New Roman', serif; }
-.dateRow { display: grid; grid-template-columns: 1fr 10cqw 1fr; align-items: center; width: 100%; font-size: 3.2cqw; letter-spacing: .3cqw; }
-.dateRow span { padding: .75cqw 0; }
-.dateRow .day { border-inline: 1px solid currentColor; font-size: 6cqw; line-height: 1; letter-spacing: .2cqw; }
-.papers .date .weekday { position: static; width: auto; margin: 1cqw 0 0; font: 2.5cqw/1.3 "MUZUViWSVAtSEFTVEVHSSPVEY", 'Times New Roman', serif; letter-spacing: .1cqw; }
-.content .time { font: normal 6cqw/1.15 "MUZUViWSVAtSEFTVEVHSSPVEY", 'Times New Roman', serif; }
-.directions { display: flex; align-items: center; justify-content: center; gap: 1cqw; color: inherit; font: normal 2.6cqw/1.4 "MUZUViWSVAtSEFTVEVHSSPVEY", 'Times New Roman', serif; letter-spacing: .17cqw; text-decoration: none; animation: directionPulse 1.6s ease-in-out infinite; transform-origin: center; margin-top: 0; }
-.directions svg { width: 2.2cqw; height: 2.7cqw; flex-shrink: 0; }
-.papers .content .honoured { margin-top: 0; font: 1.45cqw/1.6 Arial, sans-serif; letter-spacing: .1cqw; }
+@font-face {
+  font-family: "Reception Script";
+  src: url("/assets/238eded634cb8218.ttf") format("truetype");
+  font-display: swap;
+}
+.invitation { width: 420px; padding: 30px 15px 26px; background: transparent; color: #2e6337; text-align: center; }
+.heading { margin: 0; font: 400 15px/1.5 "Times New Roman", serif; text-transform: uppercase; text-wrap: balance; }
+.families { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 30px; }
+.family { min-width: 0; }
+.title { margin: 0 0 18px; font: 400 26px/1.5 "Reception Script", cursive; white-space: nowrap; }
+.date, .details { margin: 0; font: 400 8px/1.65 Arial, sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+.date { min-height: 40px; }
+.details { margin-top: 10px; min-height: 40px; }
+.details span { display: inline-block; }
+.directions { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 38px; margin-top: 4px; color: inherit; font: bold 16px/1.3 "Times New Roman", serif; text-decoration: none; }
+.directions svg { width: 15px; height: 22px; flex-shrink: 0; }
 .directions:hover { text-decoration: underline; text-underline-offset: 4px; }
-.directions:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
-.flower { position: absolute; z-index: 3; pointer-events: none; width: 23%; height: auto; }
-.flowerTop { width: 28%; top: -8%; left: -2%; transform: none; }
-.flowerBottom { width: 28%; top: -30%; right: -2%; transform: none; clip-path: inset(0 0 40% 0); }
-@keyframes directionPulse { 0%, 100% { transform: scale(.95); } 50% { transform: scale(1.06); } }
-@media (prefers-reduced-motion: reduce) { .directions { animation: none; } }
+.directions:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.monogram { position: relative; width: 180px; height: 170px; margin: 22px auto 0; font-family: "Reception Script", cursive; }
+.year { position: absolute; inset: 0; color: #2e633726; font: 400 54px/.95 "Times New Roman", serif; }
+.groom { position: absolute; top: 12px; left: 18px; font-size: 52px; line-height: 1.1; }
+.and { position: absolute; top: 65px; left: 46px; font-size: 21px; line-height: 1; }
+.bride { position: absolute; top: 70px; right: 10px; font-size: 52px; line-height: 1.1; }
+
+.directions { animation: directions-glow 1.6s ease-in-out infinite; border-radius: 6px; padding: 0 7px; }
+@keyframes directions-glow {
+  0%, 100% { opacity: 1; background-color: transparent; }
+  50% { opacity: .6; background-color: #2e633712; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .directions { animation: none; text-decoration: underline; text-underline-offset: 4px; }
+}
+
+.honor {
+  margin: 10px auto 0;
+  max-width: 365px;
+  font: 400 15px/1.5 "Times New Roman", serif;
+  text-transform: uppercase;
+  text-wrap: balance;
+}

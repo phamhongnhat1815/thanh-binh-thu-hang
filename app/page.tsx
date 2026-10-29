@@ -9,7 +9,7 @@ export default async function Page() {
   );
   return (
     <>
-      <link rel="stylesheet" href="/cover.css" />
+      <link rel="stylesheet" href="/cover.css?v=20261028-open-smaller" />
       <Wedding html={html} events={events} cover />
     </>
   );
